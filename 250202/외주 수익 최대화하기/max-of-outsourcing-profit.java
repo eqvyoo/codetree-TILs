@@ -10,17 +10,9 @@ public class Main {
         for(int i = 1; i <= n; i++){
             int t = sc.nextInt();
             int p = sc.nextInt();
-            // 휴가 기간 내에 진행 불가능이라면, pass
-            if (i+t-1 > n)
-                continue;
-            else {
-                if (1 < t && t <= n){
-                    dp[i+t-1] = Math.max(dp[i+t-1], p);
-                }else{
-                    dp[i] = Math.max(dp[i], p + dp[i-1]);
-                }
-                
-            }
+            dp[i] = Math.max(dp[i],dp[i-1]);
+            if (i+t-1 <= n)
+                dp[i+t-1] = Math.max(dp[i+t-1], dp[i-1] + p);
         }
         for (int i : dp){
             ans = Math.max(ans, i);
