@@ -14,10 +14,12 @@ public class Main {
             if (i+t-1 > n)
                 continue;
             else {
-                if (i<t && t <= n){
+                if (1 < t && t <= n){
                     dp[i+t-1] = Math.max(dp[i+t-1], p);
+                }else{
+                    dp[i] = Math.max(dp[i], p + dp[i-1]);
                 }
-                dp[i+t-1] = Math.max(dp[i+t-1], p + dp[i-1]);
+                
             }
         }
         for (int i : dp){
