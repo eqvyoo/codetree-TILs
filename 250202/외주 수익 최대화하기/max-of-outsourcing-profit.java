@@ -17,8 +17,7 @@ public class Main {
                 if (i<t && t <= n){
                     dp[i+t-1] = Math.max(dp[i+t-1], p);
                 }
-                if (i >= t)//가능한 것들 중,, 겹치지 않게.
-                    dp[i+t-1] = Math.max(dp[i+t-1], p + dp[i-t]);
+                dp[i+t-1] = Math.max(dp[i+t-1], p + dp[i-1]);
             }
         }
         for (int i : dp){
